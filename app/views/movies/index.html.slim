@@ -1,0 +1,39 @@
+table border='1px;'
+  tr
+    th No.
+    th movie_table_id
+    th movie_table_name
+    th movie_actor_table_id
+    th movie_actor_table_movie_id
+    th movie_actor_table_actor_id
+    th actor_table_id
+    th actor_table_name
+    th actor_table_age
+    th actor_table_weight
+    th actor_table_height
+    th setting_table_id
+    th setting_table_setting_value
+    th setting_table_attribute_type_id
+    th setting_table_actor_id
+    th attribute_type_table_id
+    th attribute_type_table_name
+
+  - @result_array.each.with_index(1) do |ra, idx|
+    tr
+      td = idx
+      td = ra[:movie_table_id]
+      td = ra[:movie_table_name]
+      td = ra[:movie_actor_table_id]
+      td = ra[:movie_actor_table_movie_id]
+      td = ra[:movie_actor_table_actor_id]
+      td = ra[:actor_table_id]
+      td = ra[:actor_table_name]
+      td = ra[:actor_table_age]
+      td = ra[:actor_table_weight]
+      td = ra[:actor_table_height]
+      td = ra[:setting_table_id]
+      td = ra[:setting_table_setting_value]
+      td = ra[:setting_table_attribute_type_id]
+      td = ra[:setting_table_actor_id]
+      td = ra[:attribute_type_table_id]
+      td = ra[:attribute_type_table_name]
