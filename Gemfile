@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # DB System
 gem 'mysql2' , '>= 0.3.18', '< 0.5'
+
+# HTML
+gem 'slim-rails'
