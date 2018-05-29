@@ -1,11 +1,13 @@
 class MoviesController < ApplicationController
 
   def index
-    @result_array = []
-    AttributeType.group(:name).each do |attr_typ|
-      Setting.where(setting_value: attr_typ.settings.pluck(:setting_value)).each do |set_val|
-        set_val.actor.movie_actors.each do |sa_ma|
-          @result_array << hash_maker(attr_typ, set_val, set_val.actor, sa_ma, sa_ma.movie)
+    @result = Benchmark.realtime do
+      @result_array = []
+      AttributeType.group(:name).each do |attr_typ|
+        Setting.where(setting_value: attr_typ.settings.pluck(:setting_value)).includes(:actor).each do |set_val|
+          set_val.actor.movie_actors.includes(:movie).each do |sa_ma|
+            @result_array << hash_maker(attr_typ, set_val, set_val.actor, sa_ma, sa_ma.movie)
+          end
         end
       end
     end
